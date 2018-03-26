@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>USERS PAGE</title>
+	<meta charset="utf-8">
+	<title>Users Page</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
+	{% comment %}
 	<h1>Here are your users for AppTwo</h1>
 	<ol>
 		{% for person in users %}
@@ -11,8 +14,18 @@
 			<ul>
 				<li>First Name: {{ person.first_name }}</li>
 				<li>Last Name: {{ person.last_name }}</li>
+				<li>Email: {{ person.email }}</li>
 			</ul>
 		{% endfor %}
 	</ol>
+	{% endcomment %}
+	<div class="container">
+		<h1>Please sign up here!</h1>
+		<form method="POST">
+			{{ form.as_p }}
+			{% csrf_token %}
+			<input type="submit" class="btn btn-primary" value="Submit">
+		</form>
+	</div>
 </body>
 </html>
