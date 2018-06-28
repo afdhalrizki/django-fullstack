@@ -1,4 +1,4 @@
-"""advcbv URL Configuration
+"""learning_templates URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/1.11/topics/http/urls/
@@ -18,7 +18,7 @@ from django.contrib import admin
 from basic_app import views
 
 urlpatterns = [
+	url(r'^$', views.index, name='index'),
     url(r'^admin/', admin.site.urls),
-    url(r'^$', views.IndexView.as_view()),
-    url(r'^basic_app/', include('basic_app.urls', namespace='basic_app'))
+    url(r'^basic_app/', include('basic_app.urls')),
 ]
